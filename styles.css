@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-family: 'ArmWrestler', sans-serif;
     line-height: 1.6;
     color: var(--dark-gray);
     background-color: var(--light-gray);
@@ -69,7 +69,7 @@ body {
 }
 
 .logo-text h1 {
-    font-size: 1.8rem;
+    font-size: 24px;
     font-weight: 700;
     color: var(--primary-red);
     margin: 0;
@@ -77,7 +77,7 @@ body {
 
 .logo-text span {
     font-size: 0.9rem;
-    color: var(--dark-blue);
+    color: var(--black);
     font-weight: 300;
 }
 
