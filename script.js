@@ -26,7 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función global para scroll suave a secciones
     window.scrollToSection = function(targetSection) {
-        showSection(targetSection);
+        // Forzar scroll y activación con retraso para asegurar el DOM
+        const section = document.getElementById(targetSection);
+        if (section) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            section.classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const navLink = document.querySelector(`[href="#${targetSection}"]`);
+            if (navLink) navLink.classList.add('active');
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
     };
     
     // Event listeners para navegación
@@ -201,17 +212,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // CTA buttons functionality
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    ctaButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // The onclick attributes in HTML will handle the navigation
-            // This is for additional visual feedback
+    // Solo agregar visual feedback al botón 'Reservar Ahora' del banner
+    const reservarBtn = document.querySelector('.banner-slide.active .cta-button');
+    if (reservarBtn && reservarBtn.textContent.trim() === 'Reservar Ahora') {
+        reservarBtn.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 150);
         });
-    });
+    }
     
     // FAQ functionality
     const faqItems = document.querySelectorAll('.faq-item');
@@ -426,6 +436,107 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = 'scale(1)';
             }, 150);
         });
+    });
+    
+    // Carrito funcional para canciones, reservas y menús
+    let cart = [];
+
+    function updateCartCount() {
+        const count = cart.length;
+        document.querySelector('.cart-count').textContent = count;
+    }
+
+    function showCart() {
+        let modal = document.getElementById('cartModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'cartModal';
+            modal.style.position = 'fixed';
+            modal.style.top = '50px';
+            modal.style.right = '30px';
+            modal.style.background = '#fff';
+            modal.style.border = '2px solid #e60012';
+            modal.style.borderRadius = '12px';
+            modal.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
+            modal.style.zIndex = '9999';
+            modal.style.width = '320px';
+            modal.style.maxHeight = '70vh';
+            modal.style.overflowY = 'auto';
+            modal.style.padding = '20px';
+            document.body.appendChild(modal);
+        }
+        modal.innerHTML = `<h3 style='color:#e60012'>Carrito</h3><ul id='cartList' style='padding-left:0;list-style:none;margin-bottom:20px;'></ul><button id='closeCart' style='background:#e60012;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;'>Cerrar</button>`;
+        const list = modal.querySelector('#cartList');
+        cart.forEach((item, idx) => {
+            const li = document.createElement('li');
+            li.style.display = 'flex';
+            li.style.justifyContent = 'space-between';
+            li.style.alignItems = 'center';
+            li.style.marginBottom = '10px';
+            li.innerHTML = `<span>${item.type}: <b>${item.name}</b></span> <button data-idx='${idx}' style='background:#cc0010;color:#fff;border:none;padding:4px 10px;border-radius:4px;cursor:pointer;'>Eliminar</button>`;
+            list.appendChild(li);
+        });
+        modal.querySelector('#closeCart').onclick = () => modal.remove();
+        list.querySelectorAll('button').forEach(btn => {
+            btn.onclick = function() {
+                const idx = parseInt(this.getAttribute('data-idx'));
+                cart.splice(idx, 1);
+                updateCartCount();
+                showCart();
+            };
+        });
+    }
+
+    function addToCart(type, name) {
+        cart.push({type, name});
+        updateCartCount();
+    }
+
+    function setupSongButtons() {
+        document.querySelectorAll('.add-to-queue').forEach(btn => {
+            btn.onclick = function() {
+                const card = btn.closest('.song-card');
+                const name = card.querySelector('h3')?.textContent || 'Canción';
+                addToCart('Canción', name);
+            };
+        });
+    }
+
+    function setupReserveButtons() {
+        document.querySelectorAll('.btn-reserve').forEach(btn => {
+            btn.onclick = function() {
+                const card = btn.closest('.pricing-card');
+                const name = card.querySelector('h3')?.textContent || btn.textContent.trim();
+                let type = 'Reserva';
+                if (btn.textContent.toLowerCase().includes('ordenar')) type = 'Menú';
+                addToCart(type, name);
+            };
+        });
+    }
+
+    function setupCartIcon() {
+        const cartIcon = document.querySelector('.header-link.cart');
+        if (cartIcon) {
+            cartIcon.onclick = function(e) {
+                e.preventDefault();
+                showCart();
+            };
+        }
+    }
+
+    function setupBannerReserveButton() {
+        // No modificar el evento del botón, ya que el HTML maneja el scroll con onclick="scrollToSection('salas')"
+        // Si se requiere visual feedback, se puede agregar aquí, pero no se debe prevenir el comportamiento por defecto.
+    // No modificar el evento del botón ni del texto, dejar solo el atributo onclick del HTML
+    // Así el botón 'Reservar Ahora' funcionará solo con el HTML y el texto no tendrá ningún evento
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        setupSongButtons();
+        setupReserveButtons();
+        setupCartIcon();
+        setupBannerReserveButton();
+        updateCartCount();
     });
     
     console.log('Fuji Sounds website initialized successfully! 🎌🎤');

@@ -45,7 +45,8 @@ body {
 
 .header-top {
     border-bottom: 1px solid var(--medium-gray);
-    padding: 10px 0;
+    padding: 28px 0 28px 0;
+    min-height: 90px;
 }
 
 .header-content {
@@ -62,8 +63,8 @@ body {
 }
 
 .logo-img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -92,22 +93,24 @@ body {
     border-radius: 6px;
     overflow: hidden;
     background: var(--white);
+    height: 64px;
+    align-items: center;
 }
 
 .category-select {
-    padding: 12px 15px;
+    padding: 18px 20px;
     border: none;
     background: var(--light-gray);
     color: var(--dark-gray);
-    font-size: 0.9rem;
-    min-width: 150px;
+    font-size: 1.1rem;
+    min-width: 170px;
 }
 
 .search-input {
     flex: 1;
-    padding: 12px 15px;
+    padding: 18px 20px;
     border: none;
-    font-size: 1rem;
+    font-size: 1.15rem;
     outline: none;
 }
 
@@ -115,9 +118,9 @@ body {
     background: var(--primary-red);
     color: var(--white);
     border: none;
-    padding: 12px 20px;
+    padding: 18px 28px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     transition: background-color 0.3s;
 }
 
@@ -249,25 +252,26 @@ body {
 
 .banner-logo {
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .banner-logo-img {
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     object-fit: contain;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 
 .banner-content h2 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .banner-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -288,6 +292,10 @@ body {
     background: var(--secondary-red);
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
+}
+
+.banner-content .cta-button {
+    margin-top: 0px;
 }
 
 .banner-dots {
@@ -352,8 +360,8 @@ body {
 }
 
 .trust-logo {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
     margin-bottom: 20px;
 }
@@ -475,6 +483,10 @@ body {
     transition: all 0.3s;
     border: 2px solid transparent;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .pricing-card:hover {
@@ -494,7 +506,7 @@ body {
 
 .plan-badge {
     position: absolute;
-    top: 15px;
+    top: 0px;
     right: 15px;
     background: var(--gold);
     color: var(--dark-gray);
@@ -511,7 +523,7 @@ body {
 }
 
 .plan-header {
-    padding: 30px 20px 20px;
+    padding: 50px 20px 20px 20px;
     text-align: center;
 }
 
@@ -589,11 +601,7 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;
-}
-
-.btn-reserve:hover {
-    background: var(--secondary-red);
-    transform: translateY(-2px);
+    align-self: flex-end;
 }
 
 /* Catalog Styles */
@@ -830,8 +838,8 @@ body {
 }
 
 .footer-logo-img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -910,3 +918,4 @@ body {
 
 .footer-bottom {
     border-top: 1px solid #555;
+}
