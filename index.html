@@ -25,19 +25,6 @@
                         </div>
                     </div>
                     
-                    <div class="search-section">
-                        <div class="search-container">
-                            <select class="category-select">
-                                <option>Todas las categorías</option>
-                                <option>Salas Karaoke</option>
-                                <option>Eventos Privados</option>
-                                <option>Noches Temáticas</option>
-                                <option>Comida Japonesa</option>
-                            </select>
-                            <input type="text" placeholder="Buscar salas, eventos, menús..." class="search-input">
-                            <button class="search-btn"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
                     
                     <div class="header-actions">
                         <div class="language-selector">
@@ -67,8 +54,6 @@
                 <ul class="nav-menu">
                     <li><a href="#inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
                     <li><a href="#salas" class="nav-link"><i class="fas fa-door-open"></i> Salas Karaoke</a></li>
-                    <li><a href="#eventos" class="nav-link"><i class="fas fa-calendar-alt"></i> Eventos Privados</a></li>
-                    <li><a href="#noches-tematicas" class="nav-link"><i class="fas fa-star"></i> Noches Temáticas</a></li>
                     <li><a href="#menu" class="nav-link"><i class="fas fa-bowl-food"></i> Menú</a></li>
                     <li><a href="#comida" class="nav-link"><i class="fas fa-utensils"></i> Comida Japonesa</a></li>
                     <li><a href="#catalogo" class="nav-link"><i class="fas fa-music"></i> Catálogo</a></li>
@@ -222,23 +207,7 @@
                             <div class="category-info">
                                 <h3>Salas Karaoke</h3>
                                 <p>Espacios privados premium</p>
-                                <span class="category-price">Desde $60,000/hora</span>
-                            </div>
-                        </div>
-                        <div class="category-card" onclick="showSection('eventos')">
-                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop" alt="Eventos Privados">
-                            <div class="category-info">
-                                <h3>Eventos Privados</h3>
-                                <p>Celebraciones especiales</p>
-                                <span class="category-price">Desde $600,000</span>
-                            </div>
-                        </div>
-                        <div class="category-card" onclick="showSection('noches-tematicas')">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Noches Temáticas">
-                            <div class="category-info">
-                                <h3>Noches Temáticas</h3>
-                                <p>Anime, J-Pop, J-Rock</p>
-                                <span class="category-price">Desde $40,000</span>
+                                <span class="category-price">Desde $20,000/hora</span>
                             </div>
                         </div>
                         <div class="category-card" onclick="showSection('comida')">
@@ -385,141 +354,7 @@
             </div>
         </section>
 
-        <!-- Sección Eventos Privados -->
-        <section id="eventos" class="content-section">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="#inicio" onclick="showSection('inicio')">Inicio</a> > <span>Eventos Privados</span>
-                </div>
-                <div class="section-header">
-                    <h2>🎉 Eventos Privados (Pago Único)</h2>
-                    <p>Celebra tus momentos especiales con nosotros</p>
-                </div>
-                
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="plan-header">
-                            <h3>Plan Celebración</h3>
-                            <div class="price">$600,000<span>/evento</span></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=250&fit=crop" alt="Celebración">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-users"></i> Sala privada para 10 personas</li>
-                            <li><i class="fas fa-microphone"></i> Sonido estándar y micrófonos inalámbricos</li>
-                            <li><i class="fas fa-birthday-cake"></i> Decoración básica (globos y banner)</li>
-                            <li><i class="fas fa-glass-cheers"></i> 1 ronda de bebidas sin alcohol</li>
-                        </ul>
-                        <button class="btn-reserve">Reservar Celebración</button>
-                    </div>
 
-                    <div class="pricing-card featured">
-                        <div class="plan-badge">RECOMENDADO</div>
-                        <div class="plan-header">
-                            <h3>Plan Fiesta</h3>
-                            <div class="price">$1,000,000<span>/evento</span></div>
-                            <div class="duration"></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=250&fit=crop" alt="Fiesta">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-users"></i> Sala amplia para 15 personas</li>
-                            <li><i class="fas fa-palette"></i> Decoración temática simple</li>
-                            <li><i class="fas fa-cookie-bite"></i> Snacks básicos + bebidas sin alcohol ilimitadas</li>
-                            <li><i class="fas fa-user-tie"></i> Personal de apoyo durante el evento</li>
-                        </ul>
-                        <button class="btn-reserve">Reservar Fiesta</button>
-                    </div>
-
-                    <div class="pricing-card vip">
-                        <div class="plan-badge">CORPORATIVO/VIP</div>
-                        <div class="plan-header">
-                            <h3>Plan Corporativo/VIP</h3>
-                            <div class="price">$1,600,000<span>/evento</span></div>
-                            <div class="duration"></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=250&fit=crop" alt="Corporativo">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-crown"></i> Sala premium para 20 personas</li>
-                            <li><i class="fas fa-paint-brush"></i> Decoración personalizada (colores, temática, logotipos)</li>
-                            <li><i class="fas fa-utensils"></i> Catering básico (bebidas y snacks)</li>
-                            <li><i class="fas fa-camera"></i> Fotografía básica del evento + personal dedicado</li>
-                        </ul>
-                        <button class="btn-reserve">Reservar Corporativo/VIP</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Noches Temáticas -->
-        <section id="noches-tematicas" class="content-section">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="#inicio" onclick="showSection('inicio')">Inicio</a> > <span>Noches Temáticas</span>
-                </div>
-                <div class="section-header">
-                    <h2>🌟 Noches Temáticas (Entrada Única)</h2>
-                    <p>Vive experiencias únicas con música en vivo y ambiente especial</p>
-                </div>
-                
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="plan-header">
-                            <h3>Entrada General</h3>
-                            <div class="price">$40,000<span>/persona</span></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop" alt="Entrada General">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-ticket-alt"></i> Acceso al evento</li>
-                            <li><i class="fas fa-music"></i> Música en vivo o DJ temático</li>
-                            <li><i class="fas fa-video"></i> Proyección de videoclips y visuales</li>
-                        </ul>
-                        <button class="btn-reserve">Comprar Entrada General</button>
-                    </div>
-
-                    <div class="pricing-card featured">
-                        <div class="plan-badge">PLUS</div>
-                        <div class="plan-header">
-                            <h3>Entrada Plus</h3>
-                            <div class="price">$80,000<span>/persona</span></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Entrada Plus">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-check"></i> Todo lo del general +</li>
-                            <li><i class="fas fa-cocktail"></i> Bebida sin alcohol incluida</li>
-                            <li><i class="fas fa-star"></i> Acceso a zona preferente</li>
-                        </ul>
-                        <button class="btn-reserve">Comprar Entrada Plus</button>
-                    </div>
-
-                    <div class="pricing-card vip">
-                        <div class="plan-badge">VIP</div>
-                        <div class="plan-header">
-                            <h3>Entrada VIP</h3>
-                            <div class="price">$140,000<span>/persona</span></div>
-                        </div>
-                        <div class="plan-image">
-                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=250&fit=crop" alt="Entrada VIP">
-                        </div>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-check"></i> Todo lo del Plus +</li>
-                            <li><i class="fas fa-gift"></i> Souvenir especial (stickers o llavero del evento)</li>
-                            <li><i class="fas fa-couch"></i> Zona exclusiva con asientos reservados</li>
-                            <li><i class="fas fa-user-tie"></i> Servicio de mesero</li>
-                        </ul>
-                        <button class="btn-reserve">Comprar Entrada VIP</button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Sección Comida Japonesa -->
         <section id="comida" class="content-section">
